@@ -68,10 +68,8 @@
                                 <button
                                     class="btn btn-danger"
                                     @click.prevent="deleteForm(post.id)"
-                                    :disabled="
-                                        currentUser.email == post.email &&
-                                        currentUser.admin == 0
-                                    "
+                                    :disabled="currentUser.email == post.email"
+                                    :hidden="currentUser.admin == 0"
                                 >
                                     DELETE
                                 </button>

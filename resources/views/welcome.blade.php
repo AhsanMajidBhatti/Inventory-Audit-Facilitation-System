@@ -7,23 +7,23 @@
 
     <title>Laravel</title>
 
-    <link rel="stylesheet" href="{{ secure_asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic|Material+Icons">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" rel="stylesheet" />
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <link rel="stylesheet" href="{{secure_asset('AdminLTE/plugins/fontawesome-free/css/all.min.css')}}">
+    <link rel="stylesheet" href="{{asset('AdminLTE/plugins/fontawesome-free/css/all.min.css')}}">
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet"
-        href="{{secure_asset('AdminLTE/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css')}}">
-    <link rel="stylesheet" href="{{secure_asset('AdminLTE/plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{secure_asset('AdminLTE/plugins/jqvmap/jqvmap.min.css')}}">
-    <link rel="stylesheet" href="{{secure_asset('AdminLTE/dist/css/adminlte.min.css')}}">
-    <link rel="stylesheet" href="{{secure_asset('AdminLTE/plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
-    <!-- <link rel="stylesheet" href="{{secure_asset('AdminLTE/plugins/daterangepicker/daterangepicker.css')}}"> -->
-    <link rel="stylesheet" href="{{secure_asset('AdminLTE/plugins/summernote/summernote-bs4.min.css')}}">
+        href="{{asset('AdminLTE/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css')}}">
+    <link rel="stylesheet" href="{{asset('AdminLTE/plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('AdminLTE/plugins/jqvmap/jqvmap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('AdminLTE/dist/css/adminlte.min.css')}}">
+    <link rel="stylesheet" href="{{asset('AdminLTE/plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
+    <!-- <link rel="stylesheet" href="{{asset('AdminLTE/plugins/daterangepicker/daterangepicker.css')}}"> -->
+    <link rel="stylesheet" href="{{asset('AdminLTE/plugins/summernote/summernote-bs4.min.css')}}">
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -38,29 +38,29 @@
         <router-view></router-view>
     </div>
 
-    <script src="{{ secure_asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.js"></script>
     <script src="https://unpkg.com/vuejs-paginate@latest"></script>
 
 
-    <script src="{{secure_asset('AdminLTE/plugins/jquery/jquery.min.js')}}"></script>
-    <script src="{{secure_asset('AdminLTE/plugins/jquery-ui/jquery-ui.min.js')}}"></script>
-    <script src="{{secure_asset('AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-    <!-- <script src="{{secure_asset('AdminLTE/plugins/chart.js/Chart.min.js')}}"></script>
-    <script src="{{secure_asset('AdminLTE/plugins/sparklines/sparkline.js')}}"></script> -->
-    <script src="{{secure_asset('AdminLTE/plugins/jqvmap/jquery.vmap.min.js')}}"></script>
-    <script src="{{secure_asset('AdminLTE/plugins/jqvmap/maps/jquery.vmap.usa.js')}}"></script>
-    <script src="{{secure_asset('AdminLTE/plugins/jquery-knob/jquery.knob.min.js')}}"></script>
-    <script src="{{secure_asset('AdminLTE/plugins/moment/moment.min.js')}}"></script>
-    <!-- <script src="{{secure_asset('AdminLTE/plugins/daterangepicker/daterangepicker.js')}}"></script> -->
-    <script src="{{secure_asset('AdminLTE/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js')}}">
+    <script src="{{asset('AdminLTE/plugins/jquery/jquery.min.js')}}"></script>
+    <script src="{{asset('AdminLTE/plugins/jquery-ui/jquery-ui.min.js')}}"></script>
+    <script src="{{asset('AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <!-- <script src="{{asset('AdminLTE/plugins/chart.js/Chart.min.js')}}"></script>
+    <script src="{{asset('AdminLTE/plugins/sparklines/sparkline.js')}}"></script> -->
+    <script src="{{asset('AdminLTE/plugins/jqvmap/jquery.vmap.min.js')}}"></script>
+    <script src="{{asset('AdminLTE/plugins/jqvmap/maps/jquery.vmap.usa.js')}}"></script>
+    <script src="{{asset('AdminLTE/plugins/jquery-knob/jquery.knob.min.js')}}"></script>
+    <script src="{{asset('AdminLTE/plugins/moment/moment.min.js')}}"></script>
+    <!-- <script src="{{asset('AdminLTE/plugins/daterangepicker/daterangepicker.js')}}"></script> -->
+    <script src="{{asset('AdminLTE/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js')}}">
     </script>
-    <script src="{{secure_asset('AdminLTE/plugins/summernote/summernote-bs4.min.js')}}"></script>
-    <script src="{{secure_asset('AdminLTE/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
-    <script src="{{secure_asset('AdminLTE/dist/js/adminlte.js')}}"></script>
-    <!-- <script src="{{secure_asset('AdminLTE/dist/js/demo.js')}}"></script> -->
-    <!-- <script src="{{secure_asset('AdminLTE/dist/js/pages/dashboard.js')}}"></script> -->
+    <script src="{{asset('AdminLTE/plugins/summernote/summernote-bs4.min.js')}}"></script>
+    <script src="{{asset('AdminLTE/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
+    <script src="{{asset('AdminLTE/dist/js/adminlte.js')}}"></script>
+    <!-- <script src="{{asset('AdminLTE/dist/js/demo.js')}}"></script> -->
+    <!-- <script src="{{asset('AdminLTE/dist/js/pages/dashboard.js')}}"></script> -->
 
     <!-- Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

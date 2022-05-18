@@ -96,7 +96,10 @@ export default {
                                 "Authentication",
                                 res.data.data.admin
                             );
-                            if (res.data.data.admin === 1) {
+                            if (
+                                res.data.data.admin === 1 ||
+                                res.data.data.admin === 0
+                            ) {
                                 this.$router.go({ name: "adminmain" });
                             }
                         }
@@ -113,7 +116,10 @@ export default {
         if (!sessionStorage.getItem("token")) {
             this.$router.push({ name: "Login" });
         } else {
-            if (sessionStorage.getItem("Authentication") === "1") {
+            if (
+                sessionStorage.getItem("Authentication") === "1" ||
+                sessionStorage.getItem("Authentication") === "0"
+            ) {
                 this.$router.push({ name: "adminmain" });
             }
         }

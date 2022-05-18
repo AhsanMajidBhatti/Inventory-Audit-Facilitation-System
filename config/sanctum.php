@@ -13,8 +13,8 @@ return [
     |
     */
 
-    'stateful' => explode(',', env('SANCTUM_STATEFUL_DOMAINS', 'localhost,127.0.0.1:8000')),
-    // 'stateful' => explode(',', env('SANCTUM_STATEFUL_DOMAINS', 'inventory-audit-system.herokuapp.com')),
+    // 'stateful' => explode(',', env('SANCTUM_STATEFUL_DOMAINS', 'localhost,127.0.0.1:8000')),
+    'stateful' => explode(',', env('SANCTUM_STATEFUL_DOMAINS', 'inventory-audit-system.herokuapp.com')),
 
     /*
     |--------------------------------------------------------------------------

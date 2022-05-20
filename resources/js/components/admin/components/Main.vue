@@ -1,18 +1,14 @@
 <template>
-    <div>
-        <div id="wrapper">
-            <Nav />
-            <Sidebar />
-            <div class="content-wrapper" style="background-color: #d7e1f0">
-                <div class="container-fluid">
-                    <router-view></router-view>
-                </div>
-            </div>
-            <Footer />
-            <aside class="control-sidebar control-sidebar-dark">
-                <!-- Control sidebar content goes here -->
-            </aside>
+    <div class="wrapper">
+        <Nav />
+        <Sidebar />
+        <div class="content-wrapper" style="background-color: #d7e1f0">
+            <router-view></router-view>
         </div>
+        <Footer />
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
     </div>
 </template>
 

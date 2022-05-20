@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container-fluid">
         <div class="content-header" v-if="$route.name === 'adminmain'">
             <div class="container-fluid">
                 <div class="row mb-2">

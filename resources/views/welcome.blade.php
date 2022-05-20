@@ -15,13 +15,11 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <link rel="stylesheet" href="{{secure_asset('AdminLTE/plugins/fontawesome-free/css/all.min.css')}}">
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet"
         href="{{secure_asset('AdminLTE/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css')}}">
     <link rel="stylesheet" href="{{secure_asset('AdminLTE/plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{secure_asset('AdminLTE/plugins/jqvmap/jqvmap.min.css')}}">
     <link rel="stylesheet" href="{{secure_asset('AdminLTE/dist/css/adminlte.css')}}">
-    <link rel="stylesheet" href="{{secure_asset('AdminLTE/dist/css/adminlte.min.css')}}">
     <link rel="stylesheet" href="{{secure_asset('AdminLTE/plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
     <!-- <link rel="stylesheet" href="{{secure_asset('AdminLTE/plugins/daterangepicker/daterangepicker.css')}}"> -->
     <link rel="stylesheet" href="{{secure_asset('AdminLTE/plugins/summernote/summernote-bs4.min.css')}}">
@@ -41,13 +39,8 @@
 
     <script src="{{ secure_asset('js/app.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.js"></script>
-    <script src="https://unpkg.com/vuejs-paginate@latest"></script>
-
-
-    <script>
-    $.widget.bridge('uibutton', $.ui.button)
-    </script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.js"></script>
+    <script src="https://unpkg.com/vuejs-paginate@latest"></script> -->
 
     <script src="{{secure_asset('AdminLTE/plugins/jquery/jquery.min.js')}}"></script>
     <script src="{{secure_asset('AdminLTE/plugins/jquery-ui/jquery-ui.min.js')}}"></script>
@@ -66,7 +59,7 @@
     <!-- <script src="{{secure_asset('AdminLTE/dist/js/adminlte.js')}}"></script> -->
     <script src="{{secure_asset('AdminLTE/dist/js/adminlte.min.js')}}"></script>
     <script src="{{secure_asset('AdminLTE/dist/js/demo.js')}}"></script>
-    <script src="{{secure_asset('AdminLTE/dist/js/pages/dashboard.js')}}"></script>
+    <!-- <script src="{{secure_asset('AdminLTE/dist/js/pages/dashboard.js')}}"></script> -->
 
     <!-- Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

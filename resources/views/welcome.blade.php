@@ -44,6 +44,10 @@
     <script src="https://unpkg.com/vuejs-paginate@latest"></script>
 
 
+    <script>
+    $.widget.bridge('uibutton', $.ui.button)
+    </script>
+
     <script src="{{asset('AdminLTE/plugins/jquery/jquery.min.js')}}"></script>
     <script src="{{asset('AdminLTE/plugins/jquery-ui/jquery-ui.min.js')}}"></script>
     <script src="{{asset('AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
@@ -60,7 +64,7 @@
     <script src="{{asset('AdminLTE/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
     <script src="{{asset('AdminLTE/dist/js/adminlte.js')}}"></script>
     <!-- <script src="{{asset('AdminLTE/dist/js/demo.js')}}"></script> -->
-    <!-- <script src="{{asset('AdminLTE/dist/js/pages/dashboard.js')}}"></script> -->
+    <script src="{{asset('AdminLTE/dist/js/pages/dashboard.js')}}"></script>
 
     <!-- Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

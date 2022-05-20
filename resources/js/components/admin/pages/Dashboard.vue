@@ -29,7 +29,7 @@
                                 <div class="inner">
                                     <h3>{{ AllProducts }}</h3>
 
-                                    <p>Total Products</p>
+                                    <h4>Total Products</h4>
                                 </div>
                                 <div class="icon">
                                     <i class="ion ion-bag"></i>
@@ -45,7 +45,7 @@
                                 <div class="inner">
                                     <h3>{{ AllUsers }}</h3>
 
-                                    <p>User Registrations</p>
+                                    <h4>User Registrations</h4>
                                 </div>
                                 <div class="icon">
                                     <i class="ion ion-person-add"></i>
@@ -61,7 +61,7 @@
                                 <div class="inner">
                                     <h3>{{ AllAdmins }}</h3>
 
-                                    <p>Unique Admin</p>
+                                    <h4>Unique Admin</h4>
                                 </div>
                                 <div class="icon">
                                     <i class="ion ion-pie-graph"></i>

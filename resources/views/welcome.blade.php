@@ -32,7 +32,7 @@
 
 </head>
 
-<body class="antialiased hold-transition sidebar-mini layout-fixed" style="background-color: #a7a0dd;">
+<body class="hold-transition sidebar-mini layout-fixed" style="background-color: #a7a0dd;">
 
     <div id="app">
         <router-view></router-view>

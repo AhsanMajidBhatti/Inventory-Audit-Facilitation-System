@@ -5,10 +5,8 @@ namespace App\Http\Controllers;
 use App\Exports\ProductsExport;
 use App\Models\Depreciation;
 use App\Models\Product;
-use Illuminate\Http\Client\Request as ClientRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Facades\Validator;
 use Maatwebsite\Excel\Facades\Excel;
 use PhpOffice\PhpSpreadsheet\Style\NumberFormat\DateFormatter;
 

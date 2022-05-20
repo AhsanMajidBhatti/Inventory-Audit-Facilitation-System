@@ -64,7 +64,7 @@
     <script src="{{secure_asset('AdminLTE/plugins/summernote/summernote-bs4.min.js')}}"></script>
     <script src="{{secure_asset('AdminLTE/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
     <script src="{{secure_asset('AdminLTE/dist/js/adminlte.js')}}"></script>
-    <!-- <script src="{{secure_asset('AdminLTE/dist/js/demo.js')}}"></script> -->
+    <script src="{{secure_asset('AdminLTE/dist/js/demo.js')}}"></script>
     <script src="{{secure_asset('AdminLTE/dist/js/pages/dashboard.js')}}"></script>
 
     <!-- Bootstrap -->

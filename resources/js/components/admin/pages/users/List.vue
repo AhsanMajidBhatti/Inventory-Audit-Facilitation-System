@@ -63,13 +63,20 @@
                                     }"
                                     style="margin-right: 2vmin"
                                     class="btn btn-warning"
+                                    :hidden="
+                                        currentUser.admin === 0 &&
+                                        post.admin === 1
+                                    "
                                     >Update</router-link
                                 >
                                 <button
                                     class="btn btn-danger"
                                     @click.prevent="deleteForm(post.id)"
-                                    :disabled="currentUser.email == post.email"
-                                    :hidden="currentUser.admin == 0"
+                                    :disabled="currentUser.email === post.email"
+                                    :hidden="
+                                        currentUser.admin === 0 &&
+                                        post.admin === 1
+                                    "
                                 >
                                     DELETE
                                 </button>
@@ -134,7 +141,7 @@ export default {
             axios.get("/userview/" + SNo).then((res) => {
                 Swal.fire({
                     icon: "success",
-                    title: `Product Detail`,
+                    title: `User Detail`,
                     width: "800",
                     html: `<form>
                     <div class="form-group col-md-12 row justify-content-center">

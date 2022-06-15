@@ -102,7 +102,9 @@
                                     >Status</label
                                 >
                                 <div class="col-md-6">
-                                    <label class="radio-inline"
+                                    <label
+                                        class="radio-inline"
+                                        v-if="currentUser.admin === 1"
                                         ><input
                                             type="radio"
                                             name="status"
@@ -144,12 +146,14 @@ import axios from "../../../store/axios.js";
 export default {
     data() {
         return {
+            token: sessionStorage.getItem("token"),
             form: {
                 name: "",
                 email: "",
                 password: "",
                 status: "",
             },
+            currentUser: {},
             errorcredential: "",
         };
     },
@@ -166,6 +170,7 @@ export default {
                         ) {
                             this.errorcredential = "";
                             this.form = {};
+                            this.$router.push({ name: "AdminUserList" });
                         }
                     })
                     .catch((error) => {
@@ -173,6 +178,16 @@ export default {
                     });
             });
         },
+    },
+    mounted() {
+        // window.location.reload();
+        if (!this.token) {
+            this.$router.push({ name: "Login" });
+        } else {
+            axios.get("/user").then((res) => {
+                this.currentUser = res.data;
+            });
+        }
     },
 };
 </script>

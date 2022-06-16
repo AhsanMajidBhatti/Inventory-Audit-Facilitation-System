@@ -18,7 +18,7 @@ class ProductsExport implements FromCollection, WithHeadings
      */
     public function collection()
     {
-        $dept = Depreciation::select(DB::raw("GROUP_CONCAT(cost) as costing")->groupBy('product_id'))->orderBy('id', 'ASC')->get()
+        $dept = Depreciation::select(DB::raw("GROUP_CONCAT(cost) as costing")->orderBy('id', 'ASC')->groupBy('product_id'))->get()
             ->map(function ($attendances) {
                 $costs = explode(',', $attendances->costing);
                 return $costs;

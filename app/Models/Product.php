@@ -15,8 +15,8 @@ class Product extends Model
         'dateofpurchase' => 'date:Y-m-d'
     ];
 
-    public function depreciations()
-    {
-        return $this->hasMany(Depreciation::class, 'product_id', 'id');
-    }
+    // public function depreciations()
+    // {
+    //     return $this->hasMany(Depreciation::class, 'product_id', 'id');
+    // }
 }

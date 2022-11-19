@@ -7,8 +7,7 @@
         "watch-poll": "mix watch -- --watch-options-poll=1000",
         "hot": "mix watch --hot",
         "prod": "npm run production",
-        "production": "mix --production",
-        "node": "16.x"
+        "production": "mix --production"
     },
     "devDependencies": {
         "@popperjs/core": "^2.10.2",
@@ -26,12 +25,13 @@
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
+        "chart.js": "^3.9.1",
         "laravel-vue-pagination": "^3.0.0",
         "sweetalert2": "^11.4.4",
         "vue-barcode-reader": "^1.0.2",
+        "vue-chartjs": "^4.1.2",
         "vue-resource": "^1.5.3",
         "vue-xlsx": "^0.2.1",
         "xlsx": "^0.18.5"
     }
-    
 }

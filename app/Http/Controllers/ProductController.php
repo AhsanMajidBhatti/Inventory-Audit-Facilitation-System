@@ -6,6 +6,7 @@ use App\Exports\ProductsExport;
 use App\Models\Depreciation;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Maatwebsite\Excel\Facades\Excel;
 use PhpOffice\PhpSpreadsheet\Style\NumberFormat\DateFormatter;
@@ -27,8 +28,8 @@ class ProductController extends Controller
         $product->description = $request->description;
 
         $product->status = $request->selected;
-        if ($request->selected === 'InActive') {
-            $product->inactive_date = date('Y-m-d');
+        if ($request->selected === 'Repair') {
+            $product->repair_date = date('Y-m-d');
         }
         // $product->dateofpurchase = date('Y-m-d', $request->dateofpurchase);
         // $product->dateofpurchase = \PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($request->dateofpurchase)->format('Y-m-d');
@@ -57,22 +58,25 @@ class ProductController extends Controller
             'data' => $product,
             'message' => 'Product Created Successfully'
         ]);
-        // return response()->json($request->inputs);
     }
 
     public function index(Request $request)
     {
         $query = $request->input('q');
         if (!empty($query)) {
-            $products = Product::where('SNo', 'LIKE', "%" . $query . "%")
-                ->orWhere('name', 'LIKE', "%" . $query . "%")
-                ->orWhere('category', 'LIKE', "%" . $query . "%")
-                ->orWhere('status', 'LIKE', "%" . $query . "%")
-                ->orWhere('dateofpurchase', 'LIKE', "%" . $query . "%")
-                ->orWhere('assigned', 'LIKE', "%" . $query . "%")
-                ->orWhere('condition', 'LIKE', "%" . $query . "%")->paginate(5);
+            if ($query == "ALLDATA") {
+                $products = Product::paginate(count(Product::all()));
+            } else {
+                $products = Product::where('SNo', 'LIKE', "%" . $query . "%")
+                    ->orWhere('name', 'LIKE', "%" . $query . "%")
+                    ->orWhere('category', 'LIKE', "%" . $query . "%")
+                    ->orWhere('status', 'LIKE', "%" . $query . "%")
+                    ->orWhere('dateofpurchase', 'LIKE', "%" . $query . "%")
+                    ->orWhere('assigned', 'LIKE', "%" . $query . "%")
+                    ->orWhere('condition', 'LIKE', "%" . $query . "%")->paginate(10);
+            }
         } else {
-            $products = Product::paginate(5);
+            $products = Product::paginate(10);
         }
         return response()->json($products);
     }
@@ -97,8 +101,8 @@ class ProductController extends Controller
         $product->category = $request[0]['category'];
         $product->description = $request[0]['description'];
         $product->status = $request[0]['status'];
-        if ($request[0]['status'] === 'InActive') {
-            $product->inactive_date = date('Y-m-d');
+        if ($request[0]['status'] === 'Repair') {
+            $product->repair_date = date('Y-m-d');
         }
         $product->dateofpurchase = $request[0]['dateofpurchase'];
         $product->assigned = $request[0]['assigned'];
@@ -123,15 +127,30 @@ class ProductController extends Controller
         return response()->json('Product Updated Successfully');
     }
 
+    //                       FOR REPAIR/ACTIVE WORK
     public function delete($id)
     {
         $product = Product::where('SNo', $id)->first();
         if ($product->status == 'Active') {
-            $product->status = 'InActive';
-            $product->inactive_date = date('Y-m-d');
+            $product->status = 'Repair';
+            $product->repair_date = date('Y-m-d');
         } else {
             $product->status = 'Active';
+            $product->repair_date = date('Y-m-d');
         }
+        $product->save();
+        return response()->json([
+            'data' => $product,
+            'message' => 'Product Status Updated Successfully'
+        ]);
+    }
+
+    public function removeActive($id)
+    {
+        $product = Product::where('SNo', $id)->first();
+        $product->status = 'InActive';
+        $product->inactive_date = date('Y-m-d');
+
         $product->save();
         return response()->json([
             'data' => $product,
@@ -145,11 +164,12 @@ class ProductController extends Controller
         return response()->json($allproducts->count());
     }
 
+    //              FOR IMPORTING COLUMNS
     public function getAllColumn(Request $request)
     {
         $products = new Product();
 
-        $exclude_columns = ['id', 'status', 'inactive_date', 'created_at', 'updated_at'];
+        $exclude_columns = ['id', 'status', 'repair_date', 'inactive_date', 'created_at', 'updated_at'];
 
         $table = $products->getTable();
         $columns = Schema::getColumnListing($table);
@@ -179,7 +199,7 @@ class ProductController extends Controller
             foreach ($request["1"] as $key => $value) {
 
                 if ($allvalues[$i] === "depreciation") {
-                    $onlydepreciationdata[$allkeys[$i]][] = $value[$allkeys[$i]] ? $value[$allkeys[$i]] : "NULL";
+                    $onlydepreciationdata[$allkeys[$i]][] = $value[$allkeys[$i]] ? $value[$allkeys[$i]] : "0";
                 } else {
                     $completedata[$allvalues[$i]][] = $value[$allkeys[$i]];
                 }
@@ -220,6 +240,7 @@ class ProductController extends Controller
     public function exportdata(Request $request)
     {
         return Excel::download(new ProductsExport, 'ExportFile.xlsx');
+        // var_dump(new ProductsExport);
     }
 
     public function search($id)
@@ -240,10 +261,31 @@ class ProductController extends Controller
     public function locationupd($id, Request $request)
     {
         $product = Product::where('SNo', '=', $id)->first();
-        $product->assigned = str_replace("_", " ", key($request->all()));;
 
+        $product_loc['product_id'] = $product->id;
+        $product_loc['product_tag'] = $product->SNo;
+        $product_loc['previous_location'] = $product->assigned;
+        $product_loc['current_location'] = str_replace("_", " ", key($request->all()));
+        $product_loc['location_change_date'] = date('Y-m-d');
+
+        $product->assigned = str_replace("_", " ", key($request->all()));
+
+        DB::table('product_location')->insert($product_loc);
         $product->save();
 
         return response()->json(['message' => 'Location Updated Successfully']);
+    }
+
+    public function locationlist($id)
+    {
+        $productdetail = Product::where('SNo', '=', $id)->get();
+
+        $allproductloc = DB::table('product_location')->where('product_tag', '=', $id)->orderBy('id', 'DESC')->get();
+
+        if (!empty($allproductloc)) {
+            return response()->json([$productdetail, $allproductloc]);
+        } else {
+            return response()->json([$productdetail]);
+        }
     }
 }

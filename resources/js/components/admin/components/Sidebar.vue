@@ -185,6 +185,54 @@
                             </li>
                         </ul>
                     </li>
+                    <li class="nav-item">
+                        <a
+                            href="#"
+                            class="nav-link"
+                            :class="
+                                $route.name === 'ChartPage' ||
+                                $route.name === 'AnalysisPage'
+                                    ? 'active'
+                                    : ''
+                            "
+                        >
+                            <i class="nav-icon fas fa-user"></i>
+                            <p>
+                                Charts
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <router-link
+                                    :to="{ name: 'ChartPage' }"
+                                    :class="
+                                        $route.name === 'ChartPage'
+                                            ? 'active'
+                                            : ''
+                                    "
+                                    class="nav-link"
+                                >
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Graph Page</p>
+                                </router-link>
+                            </li>
+                            <li class="nav-item">
+                                <router-link
+                                    :to="{ name: 'AnalysisPage' }"
+                                    :class="
+                                        $route.name === 'AnalysisPage'
+                                            ? 'active'
+                                            : ''
+                                    "
+                                    class="nav-link"
+                                >
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Analysis Page</p>
+                                </router-link>
+                            </li>
+                        </ul>
+                    </li>
                     <!-- <li class="nav-header">EXAMPLES</li> -->
                 </ul>
             </nav>

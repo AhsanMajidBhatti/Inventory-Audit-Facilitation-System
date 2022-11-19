@@ -21,6 +21,7 @@ class CreateProductsTable extends Migration
             $table->string('category')->nullable();
             $table->string('description')->nullable();
             $table->string('status')->nullable();
+            $table->date('repair_date')->nullable();
             $table->date('inactive_date')->nullable();
             $table->date('dateofpurchase')->nullable()->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->string('cost')->nullable();

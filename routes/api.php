@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AnalysisController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
@@ -20,13 +21,17 @@ Route::get('/allproductfiles', [AuthController::class, 'allproduct'])->middlewar
 
 Route::get('/allproducts', [ProductController::class, 'allproduct'])->middleware('auth:sanctum');
 Route::get('/productlist', [ProductController::class, 'index'])->middleware('auth:sanctum');
+Route::get('/allproductlist', [ProductController::class, 'index'])->middleware('auth:sanctum');
 Route::get('/productview/{id}', [ProductController::class, 'view'])->middleware('auth:sanctum');
 Route::get('/productsearch/{id}', [ProductController::class, 'search'])->middleware('auth:sanctum');
 
 Route::delete('/productdel/{id}', [ProductController::class, 'delete'])->middleware('auth:sanctum');
+Route::delete('/productinactive/{id}', [ProductController::class, 'removeActive'])->middleware('auth:sanctum');
 Route::post('/create', [ProductController::class, 'create'])->middleware('auth:sanctum');
 Route::post('/update/{id}', [ProductController::class, 'update'])->middleware('auth:sanctum');
 Route::post('/locationupdate/{id}', [ProductController::class, 'locationupd'])->middleware('auth:sanctum');
+Route::get('/productlocationlist/{id}', [ProductController::class, 'locationlist'])->middleware('auth:sanctum');
+
 
 //  Admin Users
 Route::get('/userlist', [UserController::class, 'index'])->middleware('auth:sanctum');
@@ -39,3 +44,9 @@ Route::post('/usercreate', [UserController::class, 'store'])->middleware('auth:s
 Route::get('/allcolumn', [ProductController::class, 'getAllColumn'])->middleware('auth:sanctum');
 Route::post('/excellist', [ProductController::class, 'exceldata'])->middleware('auth:sanctum');
 Route::get('/exportdata', [ProductController::class, 'exportdata']);
+
+Route::get('/chartlist', [AnalysisController::class, 'chartslist'])->middleware('auth:sanctum');
+Route::get('/chartcostlist', [AnalysisController::class, 'chartscostlist'])->middleware('auth:sanctum');
+
+Route::post('/analysisdata', [AnalysisController::class, 'fetchData'])->middleware('auth:sanctum');
+Route::post('/analysisoption', [AnalysisController::class, 'fetchOption'])->middleware('auth:sanctum');

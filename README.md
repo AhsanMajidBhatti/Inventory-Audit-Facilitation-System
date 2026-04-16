@@ -7,58 +7,71 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+## Inventory Audit Facilitation System
+A web-based Inventory Audit Facilitation System built with Laravel (backend) and Vue.js (frontend). This system streamlines inventory tracking, auditing, and data entry through multiple input methods including manual entry, barcode scanning, and Excel import.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 🚀 Features
+### 📦 Inventory Management
+- Add and manage inventory items efficiently
+- Store detailed information for each item
+- View and track inventory records in real-time
+### 📝 Data Entry Methods
+#### Manual Entry
+- Backend form to insert individual inventory items
+- User-friendly interface for entering item details
+#### Barcode Scanning
+- Scan item barcodes using device camera
+- Automatically fetch and store item details
+- Works on both desktop (with scanner) and mobile browsers
+#### Excel Import
+- Upload Excel files to bulk insert inventory data
+- Supports structured templates for seamless import
+- Reduces manual data entry effort
+## 👥 User Roles & Access Control
+### Super Admin
+- Full system access
+- Manage users and roles
+- View and control all inventory records
+### User
+- Limited access based on permissions
+- Add, scan, and view inventory items
+- Perform audit-related tasks
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 📱 Mobile Accessibility
+- Fully accessible via mobile browsers
+- Optimized for on-the-go barcode scanning
+- No need for a separate mobile application
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 🛠️ Tech Stack
+- Backend: Laravel
+- Frontend: Vue.js
+- Database: MySQL (or compatible)
+- Other Tools:
+  * Barcode scanning libraries (e.g., QuaggaJS / similar)
+  * Excel import handling (e.g., Laravel Excel)
 
-## Learning Laravel
+## 📂 Core Functionalities
+- Inventory item creation and management
+- Barcode-based quick entry system
+- Bulk upload via Excel files
+- Role-based authentication and authorization
+- Mobile-responsive interface
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Usage
+### Login as Super Admin or User
+- Add inventory items using:
+  * Manual form
+  * Barcode scanner
+  * Excel upload
+- View and manage inventory records
+- Perform audit operations efficiently
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 🔐 Authentication
+- Role-based login system
+- Secure access control for different user types
 
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## 📌 Future Enhancements
+- Advanced reporting and analytics
+- Export inventory reports (PDF/Excel)
+- Integration with external inventory systems
+- Offline scanning support
